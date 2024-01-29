@@ -11,12 +11,13 @@ const mysqlConection = mysql.createConnection({
 
 mysqlConection.connect(function (err) {
     if (err) {
-        console.log(err)
+        console.log(err);
         return;
     } else {
-        console.log("bd is connected")
+        console.log("bd is connected");
     }
 });
+
 mysqlConection.end((err) => {
     if (err) {
         console.error('Error al cerrar la conexión a la base de datos:', err);
