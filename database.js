@@ -9,13 +9,20 @@ const mysqlConection = mysql.createConnection({
     database: 'natiworlds'
 })
 
-mysqlConection.connect(function(err){
-    if(err){
+mysqlConection.connect(function (err) {
+    if (err) {
         console.log(err)
         return;
-    } else{
+    } else {
         console.log("bd is connected")
     }
+});
+mysqlConection.end((err) => {
+    if (err) {
+        console.error('Error al cerrar la conexión a la base de datos:', err);
+        return;
+    }
+    console.log('Conexión cerrada correctamente');
 });
 
 module.exports = mysqlConection
