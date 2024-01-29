@@ -1,7 +1,7 @@
 const mysql = require('mysql2');
-import { createPool } from 'mysql2';
 
-const mysqlConection = mysql.createPool({
+
+const mysqlConection = mysql.createConnection({
     host: 'localhost',
     port: 3306,
     user: 'root',
