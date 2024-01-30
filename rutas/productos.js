@@ -1,6 +1,6 @@
 const exprees = require('express')
 const router = exprees.Router();
-const mysqlConection = require('../database');
+const mysqlConection = require('../src/database');
 
 router.get('/', async (req, res) => {
     const [resultadoProductos] = await mysqlConection.query('SELECT * FROM productos')
