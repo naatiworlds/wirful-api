@@ -15,9 +15,23 @@ const mysqlConection = mysql.createPool({
     password: DB_PASSWORD,
     database: DB_DATABASE,
     waitForConnections: true,
-    connectionLimit: 10, // Ajusta según tus necesidades
+    connectionLimit: 10,
     queueLimit: 0,
+    reconnect: {
+      maxRetries: 10,  // Número máximo de intentos de reconexión
+      delay: 3000,     // Tiempo de espera entre intentos (en milisegundos)
+    },
 });
 
+mysqlConection.getConnection((err, connection) => {
+    if (err) {
+      console.error('Error al conectar a la base de datos:', err.message);
+    } else {
+      console.log('Conexión exitosa a la base de datos');
+      connection.release();
+    }
+  });
+  
 
 module.exports = mysqlConection;
+
