@@ -1,4 +1,4 @@
-fetch('http://192.168.1.147:3000/pedidos')
+fetch('http://localhost:3000/pedidos')
 .then(response => response.json())
 .then(data => mostrarDatos(data))
 .catch(err => mostrarError(err))
@@ -6,8 +6,8 @@ const buscar = document.getElementById("buscar");
 const ultimosPedidos = document.getElementById("ultimosPedidos");
 
 const mostrarDatos = (data) => {
+    console.log(data) 
         setTimeout(() => {
-            console.log(data)
             for (let i = 0; i <= data.length; i++){
                 ultimosPedidos.innerHTML += `<p>Información del último pedido: <br>
                 id del cliente: ${data[i].id_cliente}<br>

@@ -1,4 +1,4 @@
-fetch('http://192.168.1.147:3000/productos')
+fetch('http://localhost:3000/productos')
 .then(response => response.json())
 .then(data => mostrarDatos(data))
 .catch(err => mostrarError(err))
