@@ -21,7 +21,7 @@ create table natiworlds.pedidos (
     primary key(id_cliente),
     FOREIGN KEY (id_producto) REFERENCES productos(id) on delete cascade
 );
-select * from pedidos;
-select * from productos;
-INSERT into pedidos values(1, 1, 'Carlos', '2023-06-25 16:45:27', 'pendiente', 22, 1);
-delete from natiworlds.pedidos where id_cliente = 1;
+-- select * from pedidos;
+-- select * from productos;
+-- INSERT into pedidos values(1, 1, 'Carlos', '2023-06-25 16:45:27', 'pendiente', 22, 1);
+-- delete from natiworlds.pedidos where id_cliente = 1;

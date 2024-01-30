@@ -18,12 +18,6 @@ mysqlConection.connect(function (err) {
     }
 });
 
-mysqlConection.end((err) => {
-    if (err) {
-        console.error('Error al cerrar la conexión a la base de datos:', err);
-        return;
-    }
-    console.log('Conexión cerrada correctamente');
-});
+
 
 module.exports = mysqlConection
