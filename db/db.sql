@@ -1,26 +1,21 @@
-create database if not exists natiworlds;
+CREATE DATABASE if NOT EXISTS natiworlds;
 
-use natiworlds;
-drop table productos;
-create table productos (
-    id int not null AUTO_INCREMENT,
-    nombre varchar(20),
-    coste int,
-    cantidad int,
+USE natiworlds;
+CREATE TABLE productos (
+    id INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(20),
+    coste INT,
+    stock VARCHAR(15) DEFAULT 'activo' CHECK (stock in ('activo', 'no activo')),
     primary key(id)
 );
-drop table pedidos;
-create table pedidos (
-	id_cliente int not null AUTO_INCREMENT,
-    id_producto int not null,
-    nombre_cliente varchar(20),
-    fecha datetime default CURRENT_TIMESTAMP,
-    estado varchar(15) default 'pendiente' check (estado in ('pendiente', 'revision', 'pagado', 'finalizado')),
-    coste_total int,
-    primary key(id_cliente),
+CREATE TABLE natiworlds.pedidos (
+	id_cliente INT NOT NULL AUTO_INCREMENT,
+    id_producto INT NOT NULL,
+    nombre_cliente VARCHAR(20),
+    fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+    estado VARCHAR(15) DEFAULT 'pendiente' CHECK (estado in ('pendiente', 'revision', 'pagado', 'finalizado')),
+    coste_total INT,
+    cantidad_total INT,
+    PRIMARY KEY(id_cliente),
     FOREIGN KEY (id_producto) REFERENCES productos(id) on delete cascade
 );
-select * from pedidos;
-select * from productos;
-INSERT into pedidos
-values(1, 1, 'Carlos', '2023-06-25 16:45:27', 'pendiente', 22);
