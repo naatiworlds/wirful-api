@@ -7,8 +7,8 @@ const stock = document.getElementById("stock");
 
 const mostrarDatos = (data) => {
 
+    console.log(data)
         setTimeout(() => {
-            console.log(data)
             for (let i = 0; i < data.length; i++) {
                 stock.innerHTML += `<p>Información del stock: <br>
                 Coste: ${data[i].coste}€<br>
