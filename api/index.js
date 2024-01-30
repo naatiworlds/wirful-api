@@ -2,6 +2,8 @@
 const express = require('express')
 const cors = require('cors')
 const fs = require('fs')
+const productosRouter = require('../rutas/productos');
+const pedidosRouter = require('../rutas/pedidos');
 /** Depencencias **/
 
 const app = express()
@@ -26,8 +28,8 @@ app.use(cors())
 
 /** Rutas **/
 
-app.use(require('../rutas/productos'))
-app.use(require('../rutas/pedidos'))
+app.use('/productos', productosRouter);
+app.use('/pedidos', pedidosRouter);
 
 
 /** Rutas **/
