@@ -27,7 +27,16 @@ app.use(cors())
 /** Middlewares **/
 
 /** Rutas **/
-
+app.get('/', (req, res) => {
+    const protfolio = "http://localhost:3000/productos";
+    const tienda = "http://localhost:3000/pedidos";
+    res.json({
+        welcome: "Welcome to wirful/Api",
+        enlaces: "interesting endpoints",
+        protfolio: protfolio,
+        tienda: tienda
+    })
+});
 app.use('/productos', productosRouter);
 app.use('/pedidos', pedidosRouter);
 
