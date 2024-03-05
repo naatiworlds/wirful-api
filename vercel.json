@@ -6,10 +6,10 @@
             "use": "@vercel/noce"
         }
     ],
-    "routes": [
+    "rewites": [
         {
-            "src": "/(.*)",
-            "dest": "/"
+            "source": "/api/(.*)",
+            "destination": "/api"
         }
     ]
 }
