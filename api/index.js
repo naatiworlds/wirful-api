@@ -28,8 +28,8 @@ app.use(cors())
 
 /** Rutas **/
 app.get('/', (req, res) => {
-    const protfolio = "http://localhost:3000/productos";
-    const tienda = "http://localhost:3000/pedidos";
+    const protfolio = "https://wirful-api.vercel.app/productos";
+    const tienda = "https://wirful-api.vercel.app/pedidos";
     res.json({
         welcome: "Welcome to wirful/Api",
         enlaces: "interesting endpoints",
