@@ -13,6 +13,10 @@
         {
             "src": "/productos(.*)",
             "dest": "/rutas/productos"
+        },
+        {
+            "src": "/pedidos(.*)",
+            "dest": "/rutas/pedidos"
         }
     ]
 }
