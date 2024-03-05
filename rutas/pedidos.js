@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const mysqlConection = require('../src/database');
+const mysqlConection = require('../api/database');
 
 router.get('/', async (req, res) => {
     try {
