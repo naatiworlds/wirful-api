@@ -9,6 +9,10 @@
         {
             "src": "/(.*)",
             "dest": "/api"
+        },
+        {
+            "src": "/productos(.*)",
+            "dest": "/rutas/productos"
         }
     ]
 }
