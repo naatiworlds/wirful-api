@@ -1,4 +1,4 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `addProducto`(
+CREATE DEFINER=`freedb_wirful`@`%` PROCEDURE `addProducto`(
 in _id int, 
 in _nombre varchar(20), 
 in _coste int(5), 

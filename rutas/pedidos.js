@@ -26,8 +26,26 @@ router.get('/:nombre_cliente', async (req, res) => {
         res.status(500).json({ error: 'Error al obtener el pedido' });
     }
 });
+router.delete('/:id_cliente', (req, res) => {
+    const id_cliente = req.params.id_cliente;
 
-router.post('/pedidos', async (req, res)=> {
+    mysqlConection.query('CALL freedb_wirful.deletePedido(?)', [id_cliente], (err, results) => {
+        if (!err) {
+            // Comprobar si se eliminó correctamente
+            if (results.affectedRows > 0) {
+                res.json({ status: "Pedido eliminado correctamente" });
+                console.log({ status: "Pedido eliminado correctamente" });
+            } else {
+                res.status(404).json({ error: 'Pedido no encontrado' });
+            }
+        } else {
+            console.log(err);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+    });
+});
+
+router.post('/', async (req, res)=> {
     try {
         const { id_cliente, id_producto, nombre_cliente, fecha, estado, coste_total, cantidad_total } = req.body;
         console.log(`id cliente: ${id_cliente}, id producto: ${id_producto}, nombre: ${nombre_cliente}, fecha: ${fecha}, estado: ${estado}, coste_total: ${coste_total}, cantidad_total ${cantidad_total}`);
